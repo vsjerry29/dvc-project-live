@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVC Resale Plus</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+.header{
+    position: static;
+    background-color: #4674C6;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.swiper {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 300px;
+      /* transition: transform 0.3s ease; */
+      height: 300px;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide-active {
+    transform: scale(1.2); 
+    z-index: 2;
+  }
+  .secmySwiper{
+    width: 745px ;
+  }
+  .secmySwiper .swiper-slide img{
+    height: 400px;
+    /* object-fit: cover; */
+  }
+  .map-slider .swiper-slide{
+    height: 600px;
+  }
+  .map-slider .swiper-slide img{
+    height: 600px ;
+  }
+</style>
+
+    <link rel="icon" href="assets/favicon-dvc.png" sizes="32x32">
+    <link rel="icon" href="assets/favicon-dvc.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/favicon-dvc.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img style="cursor: pointer; " onclick="window.location='index.html'" src="assets/logo.png" alt="nt" height="50px">
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" id="how-to-sell">Selling</a></li>
+          <li><a href="#" id="how-to-buy">Buying</a></li>
+          <li><a href="#" id="resorts">Resorts</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+
+          
+        </ul>
+      </nav>
+      <div class="hamburger" >
+        <svg fill="#ffffff" onclick="openMenu()" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1792 1792" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>fiction</title> <path d="M1673.9,1363.2L1673.9,1363.2c0,52.3-42.4,94.3-94.3,94.3H212.7c-52.3,0-94.3-42.4-94.3-94.3l0,0 c0-52.3,42.4-94.3,94.3-94.3h1366.8C1631.5,1268.5,1673.9,1310.9,1673.9,1363.2z"></path> <path d="M1673.9,895.6L1673.9,895.6c0,52.3-42.4,94.3-94.3,94.3H659c-52.3,0-94.3-42.4-94.3-94.3l0,0c0-52.3,42.4-94.3,94.3-94.3 h920.6C1631.5,800.8,1673.9,843.2,1673.9,895.6z"></path> <path d="M1673.9,427.9L1673.9,427.9c0,52.3-42.4,94.3-94.3,94.3H212.7c-52.3,0-94.3-42.4-94.3-94.3l0,0c0-52.3,42.4-94.3,94.3-94.3 h1366.8C1631.5,333.2,1673.9,375.6,1673.9,427.9z"></path> </g></svg>
+      </div>
+      <div class="cta">
+        <a href="https://dvcsales.com/sign-up" class="cta-btn">Add Membership to Sell</a>
+   
+      </div>
+    </div>
+    
+  </header>
+  <div class="respo-header">
+        <ul>
+        
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gurantee-lowest-commission.html">Selling</a></li>
+                <li><a href="how-dvc-works.html">Buying</a></li>
+                <li><a href="resorts.html">Resorts</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+
+                <li>
+                    <a href="https://dvcsales.com/sign-up" class="cta-btn">Add Membership to Sell</a>
+                </li>
+          
+        </ul>
+    </div>
+    <div class="container mega-menu" id="sell-menu">
+        <div class="listings">
+            <div class="listings-wrapper">
+          
+              <!-- First Column -->
+              <div class="column">
+                <a href="gurantee-lowest-commission.html">Guaranteed Lowest Commission</a>
+                <a href="">Resale Value Calculator</a>
+                <a href="selling-strategy.html">Selling Strategy</a>
+                <a href="how-dvc-works.html">How DVC Works</a>
+                <a href="how-long-to-sell-dvc.html">How Long to Sell</a>
+              </div>
+          
+              <!-- Second Column -->
+              <div class="column">
+                <a href="compare-dvc-brokers.html">Compare DVC Brokers</a>
+                <a href="cost-to-sell-dvc.html">DVC Resale Costs to Sell</a>
+                <a href="dvc-firpta-tax.html">Understanding FIRPTA</a>
+                <a href="harpta.html">Understanding HARPTA</a>
+                <!-- If you have more links, you can add them here -->
+              </div>
+          
+          
+              
+            </div>
+            
+        </div>
+        <div class="image-card">
+            <img src="assets/selling.jpeg" style="height: 100%;object-fit: cover;" alt="Listings Image">
+           
+        </div>
+    </div>
+    
+      
+      <div class="container mega-menu" id="buy-menu">
+        <div class="listings">
+            <div class="listings-wrapper">
+              
+              <!-- First Column -->
+              <div class="column">
+             
+                <a href="why-dvc.html">Why Use the DVC Market</a>
+                <a href="resale-restrictions.html">DVC Resale Restrictions</a>
+                <a href="dvc-special-request.html">Custom Request</a>
+                <a href="dvc-compare-prices.html">Purchasing DVC Direct vs. DVC Resale</a>
+                <a href="disney-vacation-club-point-calculator.html">DVC Point Calculator</a>
+              </div>
+              
+              <!-- Second Column -->
+              <div class="column">
+              
+                <a href="dvc-financing.html">DVC Market Financing</a>
+                <a href="disney-vacation-club-checklist.html">Product Understanding Checklist</a>
+                <a href="https://dvcsales.com/dvc-annual-dues">Annual Dues</a>
+                <a href="#">Disney Retail Prices</a>
+             
+              </div>
+              
+              <!-- Third Column -->
+              
+          
+            </div>
+          </div>
+          <div class="image-card">
+            <img src="assets/buying.jpeg" style="height: 100%;object-fit: cover;" alt="Listings Image">
+           
+        </div>
+    </div>
+    
+      
+     <div class="container mega-menu" id="resorts-menu">
+<div class="listings">
+
+    <div class="listings-wrapper">
+        <div class="column">
+            <p class="title" onclick="window.location='resorts.html'">View All Listings</p>
+            <a href="resort_animal-kingdom.html">Disney’s Animal Kingdom Lodge</a>
+            <a href="resort_aulani.html">Aulani, A Disney Resort & Spa</a>
+            <a href="resort_baylake-tower.html">Disney's Bay Lake Tower at the Contemporary</a>
+            <a href="resort_beach-club-villas.html">Disney's Beach Club Villas</a>
+            <a href="resort_boardwalk-villas.html">Disney's BoardWalk Villas</a>
+            <a href="resort_boulder-ridge.html">Disney's Boulder Ridge</a>
+        </div>
+        <div class="column">
+            <a href="resorts_copper-creek.html">Copper Creek Villas & Cabins at Disney's Wilderness Lodge</a>
+            <a href="resort_grand-california.html">Disney's Villas at the Grand Californian</a>
+            <a href="resort_grand-floradion.html">Disney's Grand Floridian Resort & Spa</a>
+            <a href="resort_hilton-head.html">Disney's Hilton Head Island Resort</a>
+            <a href="resort_old-key-west.html">Disney's Old Key West</a>
+            <a href="resort_polynesian.html">Polynesian Villas & Bungalows</a>
+        </div>
+        <div class="column">
+            <a href="resort_riviera.html">Disney's Riviera Resort</a>
+            <a href="resort_saratoga-springs.html">Disney's Saratoga Springs Resort</a>
+            <a href="resort_vero-beach.html">Disney's Vero Beach Resort</a>
+            <!-- Assuming the "Cabins at Disney's Fort Wilderness Lodge" and "Villas at Disneyland Hotel" were not provided in the word file. 
+            If you have URLs for those, you can add them here -->
+        </div>
+    </div>
+</div>
+<div class="image-card">
+    <img src="https://thumbs.dreamstime.com/b/mother-child-colorful-balloons-summer-holidays-celebration-family-children-people-concept-34602163.jpg" alt="Listings Image">
+    <a href="resorts.html">View All Available<br> Listings →</a>
+</div>
+</div>
+<div class="resort_1 container">
+<h2>
+    <svg onclick="window.location='resorts.html'" class="svg-inline--fa fa-chevron-left absolute -left-0 sm:-left-6 text-xl top-2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path class="" fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg>     Disney's Riviera Resort
+
+</h2>
+    <img src="https://dvcmarket.com/assets/images/resorts-images/riviera/main.jpg" alt="resort-img">
+<div class="mt-5">
+    <p>The grandeur of historic European villages and fairy-tale castles have inspired Disney's greatest stories. That inspiration has been taken across the pond and transformed into Disney's 15th Disney Vacation Club resort.</p>
+    <p>Grand archways, a stunning façade, porticos, and terraces come together to create this unique and striking resort that draws upon European and Medittearnan influences.</p>
+    <p>This new resort includes various updates and amenities that add modern elements to classic surroundings.</p>
+    <p>Artist touches are seen throughout the resort, including an art gallery in the main lobby. Beautiful gardens and a peaceful waterfront make the resort shine from the inside out.</p>
+
+    
+</div>
+</div>
+<div class="resort_2 container">
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="https://dvcmarket.com/assets/images/resorts-images/riviera/gallary/1.jpg" />
+      </div>
+
+        
+   
+      <div class="swiper-slide">
+        <img src="https://dvcmarket.com/assets/images/resorts-images/riviera/gallary/3.webp" />
+      </div>
+     
+      <div class="swiper-slide">
+        <img src="https://dvcmarket.com/assets/images/resorts-images/riviera/gallary/4.png" />
+      </div>  
+      <div class="swiper-slide">
+        <img src="https://dvcmarket.com/assets/images/resorts-images/riviera/gallary/2.webp" />
+      </div>
+
+      
+   
+   
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+<div class="resort_3 container">
+  <h5>Rooms</h5>
+  <div class="menus ">
+    <button class="active">1 Bed</button>
+    <button>2 Bed</button>
+    <button>3 Bed</button>
+    <button>Deluxe</button>
+    <button>Tower</button>
+
+
+ 
+
+
+  </div>
+
+  <div class="swiper secmySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://dvcmarket.com/assets/images/resorts-images/riviera/rooms/1bed/1.png" alt="room-img"></div>
+      <div class="swiper-slide"><img src="https://dvcmarket.com/assets/images/resorts-images/riviera/rooms/1bed/2.png" alt="room-img"></div>
+      <div class="swiper-slide"><img src="https://dvcmarket.com/assets/images/resorts-images/riviera/rooms/1bed/3.png" alt="room-img"></div>
+    
+    
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+<div class="resort_4 container">
+  <h5>Dining</h5>
+  <div class="menus">
+    <button>Bar Riva</button>
+    <button class="active">Le Petit Café</button>
+    <button>Primo Piatto</button>
+    <button>Topolino's Terrace</button>
+
+ 
+ 
+
+
+  </div>
+
+  <div class="swiper secmySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="https://dvcmarket.com/assets/images/resorts-images/riviera/dining/primo/1.jpg" alt="dinning-img"></div>
+      <div class="swiper-slide"><img src="https://dvcmarket.com/assets/images/resorts-images/riviera/dining/primo/2.jpg" alt="dinning-img"></div>
+      <div class="swiper-slide"><img src="https://dvcmarket.com/assets/images/resorts-images/riviera/dining/primo/3.jpg" alt="dinning-img"></div>
+    
+    
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+<div class="resort_5 container">
+  <h5>Map</h5>
+
+
+  <div class="swiper secmySwiper map-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img  src="https://dvcmarket.com/assets/images/resorts-images/riviera/map/map.jpg" alt="dinning-img"></div>
+  
+     
+    
+    
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+<footer class="app-footer">
+
+  
+      
+  <!-- Links Section -->
+  <div class="footer-links">
+      <div class="links-section">
+        <h4>BUYING</h4>
+        <ul>
+          <li onclick="window.location='why-dvc.html'">Why Use the DVC Market</li>
+          <li onclick="window.location='resale-restrictions.html'">DVC Resale Restrictions</li>
+          <li onclick="window.location='dvc-special-request.html'">Custom Request</li>
+          <li onclick="window.location='dvc-compare-prices.html'">Purchasing DVC Direct vs. DVC Resale</li>
+          <li onclick="window.location='disney-vacation-club-point-calculator.html'">DVC Point Calculator</li>
+          <li onclick="window.location='dvc-financing.html'">DVC Market Financing</li>
+          <li onclick="window.location='disney-vacation-club-checklist.html'">Product Understanding Checklist</li>
+          <li onclick="window.location='https://dvcsales.com/dvc-annual-dues'">Annual Dues</li>
+          <li onclick="window.location='dvc-retail-prices.html'">Disney Retail Prices</li>
+        </ul>
+      </div>
+    
+      <div class="links-section">
+        <h4>SELLING</h4>
+        <ul>
+          <li onclick="window.location='gurantee-lowest-commission.html'">Guaranteed Lowest Commission</li>
+          <li onclick="window.location='dvc-resale-value-calculator.html'">Resale Value Calculator</li>
+          <li onclick="window.location='selling-strategy.html'">Selling Strategy</li>
+          <li onclick="window.location='how-dvc-works.html'">How DVC Works</li>
+          <li onclick="window.location='how-long-to-sell-dvc.html'">How Long to Sell</li>
+          <li onclick="window.location='compare-dvc-brokers.html'">Compare DVC Brokers</li>
+          <li onclick="window.location='cost-to-sell-dvc.html'">DVC Resale Costs to Sell</li>
+          <li onclick="window.location='dvc-firpta-tax.html'">Understanding FIRPTA</li>
+          <li onclick="window.location='harpta.html'">Understanding HARPTA</li>
+        </ul>
+      </div>
+    
+      <div class="links-section">
+        <h4>RESORTS</h4>
+        <ul>
+          <li onclick="window.location='resorts.html'">Disney Resorts</li>
+          <li onclick="window.location='resort_animal-kingdom.html'">Disney’s Animal Kingdom Lodge</li>
+          <li onclick="window.location='resort_aulani.html'">Aulani, A Disney Resort & Spa</li>
+          <li onclick="window.location='resort_baylake-tower.html'">Disney's Bay Lake Tower at the Contemporary</li>
+          <li onclick="window.location='resort_beach-club-villas.html'">Disney's Beach Club Villas</li>
+          <li onclick="window.location='resort_boardwalk-villas.html'">Disney's BoardWalk Villas</li>
+          <li onclick="window.location='resort_boulder-ridge.html'">Disney's Boulder Ridge</li>
+          <li onclick="window.location='resorts_copper-creek.html'">Copper Creek Villas & Cabins at Disney's Wilderness Lodge</li>
+          <li onclick="window.location='resort_grand-california.html'">Disney's Villas at the Grand Californian</li>
+          <li onclick="window.location='resort_grand-floradion.html'">Disney's Grand Floridian Resort & Spa</li>
+          <li onclick="window.location='resort_hilton-head.html'">Disney's Hilton Head Island Resort</li>
+          <li onclick="window.location='resort_old-key-west.html'">Disney's Old Key West</li>
+          <li onclick="window.location='resort_polynesian.html'">Polynesian Villas & Bungalows</li>
+          <li onclick="window.location='resort_riviera.html'">Disney's Riviera Resort</li>
+          <li onclick="window.location='resort_saratoga-springs.html'">Disney's Saratoga Springs Resort</li>
+          <li onclick="window.location='resort_vero-beach.html'">Disney's Vero Beach Resort</li>
+        </ul>
+      </div>
+    
+    
+    
+      <div class="links-section">
+        <h4>ACCREDITATIONS</h4>
+        <div class="ACCREDITATIONS">
+          <img onclick="window.location='https://dvcsales.com/'" width="62px" height="62px" src="https://dvcsales.com/custom-assets/images/arda_08Awards_logo_3d-rgb.jpg" alt="Accreditation 1">
+          <img onclick="window.location='https://www.bbb.org/us/fl/winter-garden/profile/timeshare-resale-and-rental-marketing/dvc-sales-0733-90326120/more-info#alert-0_65'" width="62px" height="62px" src="https://dvcsales.com/custom-assets/images/BBB-Tall-12-13.jpg" alt="Accreditation 2">
+        </div>  
+      </div>
+    
+      <div class="links-section">
+        <h4>CALL TO SCHEDULE AN APPOINTMENT</h4>
+        <img src="https://dvcsales.com/custom-assets/images/USMap7-e1573978922877.png" alt="Map Icon">
+      </div>
+    </div>
+    
+
+  <!-- Bottom Section -->
+  <div class="footer-bottom">
+    <p>&copy; 2016-2025 DVC Sales, LLC All Rights Reserved</p>
+    <p>DVC Sales, LLC is not affiliated with the Walt Disney Company or any of its subsidiaries</p>
+  </div>
+
+</footer>
+      
+<script>
+ const boxes = document.querySelectorAll('.resort-box');
+
+boxes.forEach(box => {
+  box.addEventListener('mouseenter', () => {
+    box.classList.add('active');
+    box.style.zIndex = 10; 
+  });
+
+  box.addEventListener('mouseleave', () => {
+    box.classList.remove('active');
+
+
+    setTimeout(() => {
+      box.style.zIndex = 1;
+    }, 800); 
+  });
+});
+// window.addEventListener("scroll", function () {
+//     const header = document.querySelector(".header");
+//     if (window.scrollY > 0) {
+//         header.classList.add("scrolled");
+//     } else {
+//         header.classList.remove("scrolled");
+//     }
+// });
+
+function openMenu(){
+    document.querySelector('.respo-header').classList.toggle('active');
+}
+;
+const sellMenuBtn = document.getElementById('how-to-sell');
+const buyMenuBtn = document.getElementById('how-to-buy');
+const resortsMenuBtn = document.getElementById('resorts');
+
+const sellMenu = document.getElementById('sell-menu');
+const buyMenu = document.getElementById('buy-menu');
+const resortsMenu = document.getElementById('resorts-menu');
+
+function hideAllMenus() {
+  sellMenu.classList.remove('active');
+  buyMenu.classList.remove('active');
+  resortsMenu.classList.remove('active');
+}
+
+
+sellMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  sellMenu.classList.add('active');
+});
+
+buyMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  buyMenu.classList.add('active');
+});
+
+resortsMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  resortsMenu.classList.add('active');
+});
+
+
+[sellMenu, buyMenu, resortsMenu].forEach(menu => {
+  menu.addEventListener("mouseenter", () => menu.classList.add('active'));
+  menu.addEventListener("mouseleave", () => menu.classList.remove('active'));
+});
+
+
+document.body.addEventListener("mousemove", function (event) {
+  const header = document.querySelector('header');
+  if (!header.contains(event.target) &&
+      !sellMenu.contains(event.target) &&
+      !buyMenu.contains(event.target) &&
+      !resortsMenu.contains(event.target)) {
+    hideAllMenus();
+  }
+});
+
+
+</script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: "auto",
+
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: false,
+    },
+
+    autoplay: {
+      delay: 500, // Continuous scroll
+      disableOnInteraction: false,
+    },
+
+    speed: 2000, // Smooth continuous speed
+
+    
+    breakpoints: {
+      320: { // For screens >=320px (mobile)
+        coverflowEffect: {
+          rotate: 30,
+          stretch: 0,
+          depth: 80,
+          modifier: 1,
+          slideShadows: false,
+        },
+        speed: 2500, 
+      },
+      768: { 
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        },
+        speed: 3000,
+      }
+    }
+  });
+</script>
+<script>
+  var swiper = new Swiper(".secmySwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+<script>
+  const buttons = document.querySelectorAll('.menus button');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+   
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      button.classList.add('active');
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

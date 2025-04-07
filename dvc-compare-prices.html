@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVC Resale Plus</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+.header{
+    position: static;
+    background-color: #4674C6;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 600px) {
+      .resort-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (min-width: 1300px) {
+      .resort-container {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .resort-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 10px;
+      height: 300px;
+      transition: transform 0.3s;
+    }
+
+    .resort-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .resort-title {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 2;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      transition: opacity 0.3s ease;
+    }
+
+    .resort-hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #006994;
+      color: #fff;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .resort-card:hover .resort-hover {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .resort-card:hover .resort-title {
+      opacity: 0;
+    }
+
+    .resort-hover h3 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .resort-hover p {
+      font-size: 1rem;
+    }
+    .resort-container {
+      display: grid;
+      /* grid-template-columns: repeat(1, 1fr); */
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    .section{
+      padding: 80px 0px;
+    }
+    .title{
+      font-size: 24px;
+      color: #4674C6;
+    }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px 0px;
+    justify-items: center;
+    align-items: center;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+
+  /* .title {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+  } */
+
+  .label {
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .input-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  .input-group input {
+    width: 80px;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .input-group button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #005b82;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
+
+  select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #005b82;
+    border-radius: 5px;
+  }
+
+  .reset-btn {
+
+    padding-top: .375rem;
+    padding-bottom: .375rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: #4674C6;
+    border-radius: .25rem;
+    cursor: pointer;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    outline: none;
+    font-weight: 600;
+    margin-top: 20px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+  .result {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+</style>
+
+    <link rel="icon" href="assets/favicon-dvc.png" sizes="32x32">
+    <link rel="icon" href="assets/favicon-dvc.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/favicon-dvc.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img style="cursor: pointer; " onclick="window.location='index.html'" src="assets/logo.png" alt="nt" height="50px">
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" id="how-to-sell">Selling</a></li>
+          <li><a href="#" id="how-to-buy">Buying</a></li>
+          <li><a href="#" id="resorts">Resorts</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+
+          
+        </ul>
+      </nav>
+      <div class="hamburger" >
+        <svg fill="#ffffff" onclick="openMenu()" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1792 1792" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>fiction</title> <path d="M1673.9,1363.2L1673.9,1363.2c0,52.3-42.4,94.3-94.3,94.3H212.7c-52.3,0-94.3-42.4-94.3-94.3l0,0 c0-52.3,42.4-94.3,94.3-94.3h1366.8C1631.5,1268.5,1673.9,1310.9,1673.9,1363.2z"></path> <path d="M1673.9,895.6L1673.9,895.6c0,52.3-42.4,94.3-94.3,94.3H659c-52.3,0-94.3-42.4-94.3-94.3l0,0c0-52.3,42.4-94.3,94.3-94.3 h920.6C1631.5,800.8,1673.9,843.2,1673.9,895.6z"></path> <path d="M1673.9,427.9L1673.9,427.9c0,52.3-42.4,94.3-94.3,94.3H212.7c-52.3,0-94.3-42.4-94.3-94.3l0,0c0-52.3,42.4-94.3,94.3-94.3 h1366.8C1631.5,333.2,1673.9,375.6,1673.9,427.9z"></path> </g></svg>
+      </div>
+      <div class="cta">
+        <a href="sign-up.html" class="cta-btn">Add Membership to Sell</a>
+   
+      </div>
+    </div>
+    
+  </header>
+  <div class="respo-header">
+        <ul>
+        
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gurantee-lowest-commission.html">Selling</a></li>
+                <li><a href="how-dvc-works.html">Buying</a></li>
+                <li><a href="resorts.html">Resorts</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+
+                <li>
+                    <a href="sign-up.html" class="cta-btn">Add Membership to Sell</a>
+                </li>
+          
+        </ul>
+    </div>
+    <div class="container mega-menu" id="sell-menu">
+        <div class="listings">
+            <div class="listings-wrapper">
+          
+              <!-- First Column -->
+              <div class="column">
+                <a href="gurantee-lowest-commission.html">Guaranteed Lowest Commission</a>
+                <a href="">Resale Value Calculator</a>
+                <a href="selling-strategy.html">Selling Strategy</a>
+                <a href="how-dvc-works.html">How DVC Works</a>
+                <a href="how-long-to-sell-dvc.html">How Long to Sell</a>
+              </div>
+          
+              <!-- Second Column -->
+              <div class="column">
+                <a href="compare-dvc-brokers.html">Compare DVC Brokers</a>
+                <a href="cost-to-sell-dvc.html">DVC Resale Costs to Sell</a>
+                <a href="dvc-firpta-tax.html">Understanding FIRPTA</a>
+                <a href="harpta.html">Understanding HARPTA</a>
+                <!-- If you have more links, you can add them here -->
+              </div>
+          
+          
+              
+            </div>
+            
+        </div>
+        <div class="image-card">
+            <img src="assets/selling.jpeg" style="height: 100%;object-fit: cover;" alt="Listings Image">
+           
+        </div>
+    </div>
+    
+      
+      <div class="container mega-menu" id="buy-menu">
+        <div class="listings">
+            <div class="listings-wrapper">
+              
+              <!-- First Column -->
+              <div class="column">
+             
+                <a href="why-dvc.html">Why Use the DVC Market</a>
+                <a href="resale-restrictions.html">DVC Resale Restrictions</a>
+                <a href="dvc-special-request.html">Custom Request</a>
+                <a href="dvc-compare-prices.html">Purchasing DVC Direct vs. DVC Resale</a>
+                <a href="disney-vacation-club-point-calculator.html">DVC Point Calculator</a>
+              </div>
+              
+              <!-- Second Column -->
+              <div class="column">
+              
+                <a href="dvc-financing.html">DVC Market Financing</a>
+                <a href="disney-vacation-club-checklist.html">Product Understanding Checklist</a>
+                <a href="https://dvcsales.com/dvc-annual-dues">Annual Dues</a>
+                <a href="#">Disney Retail Prices</a>
+             
+              </div>
+              
+              <!-- Third Column -->
+              
+          
+            </div>
+          </div>
+          <div class="image-card">
+            <img src="assets/buying.jpeg" style="height: 100%;object-fit: cover;" alt="Listings Image">
+           
+        </div>
+    </div>
+    
+      
+     <div class="container mega-menu" id="resorts-menu">
+<div class="listings">
+
+    <div class="listings-wrapper">
+        <div class="column">
+            <p class="title" onclick="window.location='resorts.html'">View All Listings</p>
+            <a href="resort_animal-kingdom.html">Disney’s Animal Kingdom Lodge</a>
+            <a href="resort_aulani.html">Aulani, A Disney Resort & Spa</a>
+            <a href="resort_baylake-tower.html">Disney's Bay Lake Tower at the Contemporary</a>
+            <a href="resort_beach-club-villas.html">Disney's Beach Club Villas</a>
+            <a href="resort_boardwalk-villas.html">Disney's BoardWalk Villas</a>
+            <a href="resort_boulder-ridge.html">Disney's Boulder Ridge</a>
+        </div>
+        <div class="column">
+            <a href="resorts_copper-creek.html">Copper Creek Villas & Cabins at Disney's Wilderness Lodge</a>
+            <a href="resort_grand-california.html">Disney's Villas at the Grand Californian</a>
+            <a href="resort_grand-floradion.html">Disney's Grand Floridian Resort & Spa</a>
+            <a href="resort_hilton-head.html">Disney's Hilton Head Island Resort</a>
+            <a href="resort_old-key-west.html">Disney's Old Key West</a>
+            <a href="resort_polynesian.html">Polynesian Villas & Bungalows</a>
+        </div>
+        <div class="column">
+            <a href="resort_riviera.html">Disney's Riviera Resort</a>
+            <a href="resort_saratoga-springs.html">Disney's Saratoga Springs Resort</a>
+            <a href="resort_vero-beach.html">Disney's Vero Beach Resort</a>
+            <!-- Assuming the "Cabins at Disney's Fort Wilderness Lodge" and "Villas at Disneyland Hotel" were not provided in the word file. 
+            If you have URLs for those, you can add them here -->
+        </div>
+    </div>
+</div>
+<div class="image-card">
+    <img src="https://thumbs.dreamstime.com/b/mother-child-colorful-balloons-summer-holidays-celebration-family-children-people-concept-34602163.jpg" alt="Listings Image">
+    <a href="resorts.html">View All Available<br> Listings →</a>
+</div>
+</div>
+
+<section class="compare-dvc-broker container pt-5">
+  <h2 class="main-title">PURCHASING DVC DIRECT VS. DVC RESALE</h2>
+
+  <div class="comparison-grid">
+    <!-- Row 1 -->
+    <div class="title">Walt Disney Co.</div>
+    <div class="title">vs.</div>
+    <div class="title">DVC Market</div>
+
+    <!-- Row 2: Resort Dropdowns -->
+    <div>
+      <select>
+        <option>Animal Kingdom</option>
+        <option>Aulani</option>
+        <option>Aulani(s)</option>
+        <option>Bay Lake Tower</option>
+        <option>Beach Club</option>
+        <option>Boardwalk</option>
+        <option>Boulder Ridge</option>
+        <option>Copper Creek</option>
+        <option>Grand CA</option>
+        <option>Grand Floridian</option>
+        <option>Hilton Head</option>
+        <option>Old Key West</option>
+        <option>Old Key West(57)</option>
+        <option>Polynesian</option>
+        <option>Riviera</option>
+        <option>Saratoga Springs</option>
+        <option>Vero Beach</option>
+        <option>Disneyland Hotel</option>
+        <option>Cabins at Fort Wilderness</option>
+      </select>
+    </div>
+    <div class="label">Resort Name</div>
+    <div>
+      <select>
+        <option>Animal Kingdom</option>
+        <option>Aulani</option>
+        <option>Aulani(s)</option>
+        <option>Bay Lake Tower</option>
+        <option>Beach Club</option>
+        <option>Boardwalk</option>
+        <option>Boulder Ridge</option>
+        <option>Copper Creek</option>
+        <option>Grand CA</option>
+        <option>Grand Floridian</option>
+        <option>Hilton Head</option>
+        <option>Old Key West</option>
+        <option>Old Key West(57)</option>
+        <option>Polynesian</option>
+        <option>Riviera</option>
+        <option>Saratoga Springs</option>
+        <option>Vero Beach</option>
+        <option>Disneyland Hotel</option>
+        <option>Cabins at Fort Wilderness</option>
+      </select>
+    </div>
+
+    <!-- Row 3: Points -->
+    <div class="input-group">
+      <button onclick="changeValue('directPoints', -1)"><svg class="svg-inline--fa fa-minus text-custom-blue2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"></path></svg></button>
+      <input type="number" id="directPoints" value="160">
+      <button onclick="changeValue('directPoints', 1)"><svg class="svg-inline--fa fa-plus text-custom-blue2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg></button>
+    </div>
+    <div class="label">Yearly Points</div>
+    <div class="input-group">
+      <button onclick="changeValue('resalePoints', -1)"><svg class="svg-inline--fa fa-minus text-custom-blue2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"></path></svg></button>
+      <input type="number" id="resalePoints" value="160">
+      <button onclick="changeValue('resalePoints', 1)"><svg class="svg-inline--fa fa-plus text-custom-blue2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg></button>
+    </div>
+   
+    <!-- Row 4: Price per point -->
+    <div class="input-group">
+      <button onclick="changeValue('directPrice', -1)"><svg class="svg-inline--fa fa-minus text-custom-blue2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"></path></svg></button>
+      <input type="number" id="directPrice" value="0.00" step="$0.01 style="width: 80px;">
+      <button onclick="changeValue('directPrice', 1)"><svg class="svg-inline--fa fa-plus text-custom-blue2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg></button>
+    </div>
+    <div class="label">Price per Point</div>
+    <div class="input-group">
+      <button onclick="changeValue('resalePrice', -1)"><svg class="svg-inline--fa fa-minus text-custom-blue2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="minus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z"></path></svg></button>  
+      <input type="number" id="resalePrice" value="109.00" step="$0.01" style="width: 80px;">
+      <button onclick="changeValue('resalePrice', 1)"><svg class="svg-inline--fa fa-plus text-custom-blue2" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="" fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"></path></svg></button>
+    </div>
+
+    <!-- Row 5: Contract Price -->
+    <div id="directTotal" class="result">$0.00</div>
+    <div class="label">Contract Price</div>
+    <div id="resaleTotal" class="result">$17,440.00</div>
+
+    <!-- Row 6: Savings -->
+    <div></div>
+    <div class="label">Savings</div>
+    <div id="savingsAmount" class="result">- 17,440.00</div>
+
+    <!-- Row 7: Percent Savings -->
+    <div></div>
+    <div class="label">Percent Savings</div>
+    <div id="percentAmount" class="result">0.00%</div>
+
+    <!-- Row 8: Reset -->
+    <div></div>
+    <div><button class="reset-btn" onclick="resetAll()">Reset</button></div>
+    <div></div>
+  </div>
+
+</section>
+<section class="compare-dvc-broker container pb-5">
+  <div class="description mt-5">
+    <p>By purchasing your Disney Vacation Club membership on the resale market, DVC Market can help you save thousands on your new membership. The calculator above is a great tool to assist you as you learn more about the savings you can expect by purchasing your DVC resale from DVC Market. You may be surprised see how much retail prices have increased when purchasing direct from Disney. Our Retail vs Resale calculator gives you an approximate savings based on current pricing. Give it a try!</p>
+
+    <h3 style="color: #f58220; font-weight: bold;">HOW TO USE THIS CALCULATOR:</h3>
+
+    <p>Find out how much you could save by purchasing your DVC membership on our resale market in three easy steps:</p>
+
+    <ol>
+      <li>Select your desired home resort</li>
+      <li>Select the yearly points for each of the two options.</li>
+      <li>Do not change.</li>
+    </ol>
+
+    <p>Want to learn more about how purchasing your DVC membership resale can save you? See our blog series where we discuss the benefits of purchasing your Disney Vacation Club membership on our resale market.</p>
+  </div>
+</section>
+
+  
+<footer class="app-footer">      
+  <!-- Links Section -->
+  <div class="footer-links">
+      <div class="links-section">
+        <h4>BUYING</h4>
+        <ul>
+          <li onclick="window.location='why-dvc.html'">Why Use the DVC Market</li>
+          <li onclick="window.location='resale-restrictions.html'">DVC Resale Restrictions</li>
+          <li onclick="window.location='dvc-special-request.html'">Custom Request</li>
+          <li onclick="window.location='dvc-compare-prices.html'">Purchasing DVC Direct vs. DVC Resale</li>
+          <li onclick="window.location='disney-vacation-club-point-calculator.html'">DVC Point Calculator</li>
+          <li onclick="window.location='dvc-financing.html'">DVC Market Financing</li>
+          <li onclick="window.location='disney-vacation-club-checklist.html'">Product Understanding Checklist</li>
+          <li onclick="window.location='https://dvcsales.com/dvc-annual-dues'">Annual Dues</li>
+          <li onclick="window.location='dvc-retail-prices.html'">Disney Retail Prices</li>
+        </ul>
+      </div>
+    
+      <div class="links-section">
+        <h4>SELLING</h4>
+        <ul>
+          <li onclick="window.location='gurantee-lowest-commission.html'">Guaranteed Lowest Commission</li>
+          <li onclick="window.location='dvc-resale-value-calculator.html'">Resale Value Calculator</li>
+          <li onclick="window.location='selling-strategy.html'">Selling Strategy</li>
+          <li onclick="window.location='how-dvc-works.html'">How DVC Works</li>
+          <li onclick="window.location='how-long-to-sell-dvc.html'">How Long to Sell</li>
+          <li onclick="window.location='compare-dvc-brokers.html'">Compare DVC Brokers</li>
+          <li onclick="window.location='cost-to-sell-dvc.html'">DVC Resale Costs to Sell</li>
+          <li onclick="window.location='dvc-firpta-tax.html'">Understanding FIRPTA</li>
+          <li onclick="window.location='harpta.html'">Understanding HARPTA</li>
+        </ul>
+      </div>
+    
+      <div class="links-section">
+        <h4>RESORTS</h4>
+        <ul>
+          <li onclick="window.location='resorts.html'">Disney Resorts</li>
+          <li onclick="window.location='resort_animal-kingdom.html'">Disney’s Animal Kingdom Lodge</li>
+          <li onclick="window.location='resort_aulani.html'">Aulani, A Disney Resort & Spa</li>
+          <li onclick="window.location='resort_baylake-tower.html'">Disney's Bay Lake Tower at the Contemporary</li>
+          <li onclick="window.location='resort_beach-club-villas.html'">Disney's Beach Club Villas</li>
+          <li onclick="window.location='resort_boardwalk-villas.html'">Disney's BoardWalk Villas</li>
+          <li onclick="window.location='resort_boulder-ridge.html'">Disney's Boulder Ridge</li>
+          <li onclick="window.location='resorts_copper-creek.html'">Copper Creek Villas & Cabins at Disney's Wilderness Lodge</li>
+          <li onclick="window.location='resort_grand-california.html'">Disney's Villas at the Grand Californian</li>
+          <li onclick="window.location='resort_grand-floradion.html'">Disney's Grand Floridian Resort & Spa</li>
+          <li onclick="window.location='resort_hilton-head.html'">Disney's Hilton Head Island Resort</li>
+          <li onclick="window.location='resort_old-key-west.html'">Disney's Old Key West</li>
+          <li onclick="window.location='resort_polynesian.html'">Polynesian Villas & Bungalows</li>
+          <li onclick="window.location='resort_riviera.html'">Disney's Riviera Resort</li>
+          <li onclick="window.location='resort_saratoga-springs.html'">Disney's Saratoga Springs Resort</li>
+          <li onclick="window.location='resort_vero-beach.html'">Disney's Vero Beach Resort</li>
+        </ul>
+      </div>
+    
+    
+    
+      <div class="links-section">
+        <h4>ACCREDITATIONS</h4>
+        <div class="ACCREDITATIONS">
+          <img onclick="window.location='https://dvcsales.com/'" width="62px" height="62px" src="https://dvcsales.com/custom-assets/images/arda_08Awards_logo_3d-rgb.jpg" alt="Accreditation 1">
+          <img onclick="window.location='https://www.bbb.org/us/fl/winter-garden/profile/timeshare-resale-and-rental-marketing/dvc-sales-0733-90326120/more-info#alert-0_65'" width="62px" height="62px" src="https://dvcsales.com/custom-assets/images/BBB-Tall-12-13.jpg" alt="Accreditation 2">
+        </div>  
+      </div>
+    
+      <div class="links-section">
+        <h4>CALL TO SCHEDULE AN APPOINTMENT</h4>
+        <img src="https://dvcsales.com/custom-assets/images/USMap7-e1573978922877.png" alt="Map Icon">
+      </div>
+    </div>
+    
+
+  <!-- Bottom Section -->
+  <div class="footer-bottom">
+    <p>&copy; 2016-2025 DVC Sales, LLC All Rights Reserved</p>
+    <p>DVC Sales, LLC is not affiliated with the Walt Disney Company or any of its subsidiaries</p>
+  </div>
+
+</footer>
+
+<!-- script for calc -->
+<script>
+  function formatMoney(num) {
+    return "$" + Number(num).toLocaleString("en-US", { minimumFractionDigits: 2 });
+  }
+
+  function updateTotals() {
+    const dp = parseInt(document.getElementById("directPoints").value);
+    const dr = parseFloat(document.getElementById("directPrice").value);
+    const rp = parseInt(document.getElementById("resalePoints").value);
+    const rr = parseFloat(document.getElementById("resalePrice").value);
+
+    const directTotal = dp * dr;
+    const resaleTotal = rp * rr;
+    const savings = directTotal - resaleTotal;
+
+    let percent = 0;
+    if (directTotal > 0) {
+      percent = (savings / directTotal) * 100;
+    }
+
+    document.getElementById("directTotal").innerText = formatMoney(directTotal);
+    document.getElementById("resaleTotal").innerText = formatMoney(resaleTotal);
+    document.getElementById("savingsAmount").innerText = formatMoney(savings);
+    document.getElementById("percentAmount").innerText = percent.toFixed(2) + "%";
+  }
+
+  function changeValue(id, delta) {
+    const el = document.getElementById(id);
+    const step = el.id.includes("Price") ? 1 : 1; // force price steps to 1.00
+    let newValue = parseFloat(el.value) + delta * step;
+
+    if (el.id.includes("Price")) {
+      newValue = newValue.toFixed(2);
+    } else {
+      newValue = Math.round(newValue);
+    }
+
+    el.value = newValue;
+    updateTotals();
+  }
+
+  function resetAll() {
+    document.getElementById("directPoints").value = 160;
+    document.getElementById("directPrice").value = 0.00;
+    document.getElementById("resalePoints").value = 160;
+    document.getElementById("resalePrice").value = 109.00;
+    updateTotals();
+  }
+
+  document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", updateTotals);
+  });
+
+  window.onload = () => {
+    // Add $ symbol inside price inputs
+    document.querySelectorAll('input[type="number"][id*="Price"]').forEach(input => {
+      const wrapper = document.createElement("div");
+      wrapper.style.position = "relative";
+      wrapper.style.display = "inline-block";
+
+      const dollar = document.createElement("span");
+      dollar.textContent = "$";
+      dollar.style.position = "absolute";
+      dollar.style.left = "8px";
+      dollar.style.top = "50%";
+      dollar.style.transform = "translateY(-50%)";
+      dollar.style.color = "#555";
+      dollar.style.pointerEvents = "none";
+
+      input.style.paddingLeft = "18px";
+      input.parentNode.insertBefore(wrapper, input);
+      wrapper.appendChild(dollar);
+      wrapper.appendChild(input);
+    });
+
+    updateTotals();
+  };
+</script>
+
+
+<!-- script for calc ends -->
+
+<script>
+ const boxes = document.querySelectorAll('.resort-box');
+
+boxes.forEach(box => {
+  box.addEventListener('mouseenter', () => {
+    box.classList.add('active');
+    box.style.zIndex = 10; 
+  });
+
+  box.addEventListener('mouseleave', () => {
+    box.classList.remove('active');
+
+
+    setTimeout(() => {
+      box.style.zIndex = 1;
+    }, 800); 
+  });
+});
+// window.addEventListener("scroll", function () {
+//     const header = document.querySelector(".header");
+//     if (window.scrollY > 0) {
+//         header.classList.add("scrolled");
+//     } else {
+//         header.classList.remove("scrolled");
+//     }
+// });
+
+function openMenu(){
+    document.querySelector('.respo-header').classList.toggle('active');
+}
+;
+const sellMenuBtn = document.getElementById('how-to-sell');
+const buyMenuBtn = document.getElementById('how-to-buy');
+const resortsMenuBtn = document.getElementById('resorts');
+
+const sellMenu = document.getElementById('sell-menu');
+const buyMenu = document.getElementById('buy-menu');
+const resortsMenu = document.getElementById('resorts-menu');
+
+function hideAllMenus() {
+  sellMenu.classList.remove('active');
+  buyMenu.classList.remove('active');
+  resortsMenu.classList.remove('active');
+}
+
+
+sellMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  sellMenu.classList.add('active');
+});
+
+buyMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  buyMenu.classList.add('active');
+});
+
+resortsMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  resortsMenu.classList.add('active');
+});
+
+
+[sellMenu, buyMenu, resortsMenu].forEach(menu => {
+  menu.addEventListener("mouseenter", () => menu.classList.add('active'));
+  menu.addEventListener("mouseleave", () => menu.classList.remove('active'));
+});
+
+
+document.body.addEventListener("mousemove", function (event) {
+  const header = document.querySelector('header');
+  if (!header.contains(event.target) &&
+      !sellMenu.contains(event.target) &&
+      !buyMenu.contains(event.target) &&
+      !resortsMenu.contains(event.target)) {
+    hideAllMenus();
+  }
+});
+
+
+</script>
+
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+<script>
+  const buttons = document.querySelectorAll('.menus button');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+   
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      button.classList.add('active');
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

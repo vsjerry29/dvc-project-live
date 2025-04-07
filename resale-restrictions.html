@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVC Resale Plus</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="assets/script.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<style>
+.header{
+    position: static;
+    background-color: #4674C6;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+    .resort-title {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      z-index: 2;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      transition: opacity 0.3s ease;
+    }
+
+    section{
+        padding-top: 40px;
+        padding-bottom: 60px;
+    }
+    .table-container {
+            max-width: 100%;
+            margin: 40px auto;
+    
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            color: #fff;
+            overflow: hidden;
+            background-color: #4674C6 ;
+        }
+
+        table {
+            margin-bottom: 0;
+        }
+
+        thead {
+            background-color: #4674C6;
+            color: #fff;
+        }
+
+        thead th {
+            padding: 16px;
+            font-size: 16px;
+            background-color: #4674C6  !important;
+            border: none;
+            color: #fff !important;
+         
+        }
+@media only screen and (max-width:992px){
+  tbody td{
+    font-size: 12px !important;
+  }
+  thead th{
+font-size: 13px !important  ;
+
+  }
+}
+        tbody td {
+            vertical-align: middle;
+            padding: 16px;
+            font-size: 16px;
+            color: #000;
+            text-align: start;
+            font-weight: 500;
+            font-family: "Poppins";
+            border: 3px solid #4674C6 !important;
+        }
+
+        .badge-blue {
+            background-color: #4674C6;
+            color: #fff;
+            font-size: 12px;
+            border-radius: 10px;
+            padding: 3px 10px;
+            margin-left: 10px;
+        }
+
+        .divider-row td {
+            background-color: #4674C6;
+            padding: 8px !important;
+        }
+
+        .info-section {
+            padding: 16px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .text-center img {
+            margin-top: 10px;
+            max-width: 150px;
+        }
+
+        /* Icon styles */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+        }
+
+        .icon-check {
+            fill: #4CAF50; /* Green */
+        }
+
+        .icon-cross {
+            fill: #F44336; /* Red */
+        }
+
+        .icon-alert {
+            fill: #FFC107; /* Amber */
+        }
+</style>
+
+    <link rel="icon" href="assets/favicon-dvc.png" sizes="32x32">
+    <link rel="icon" href="assets/favicon-dvc.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="assets/favicon-dvc.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">
+        <img style="cursor: pointer; " onclick="window.location='index.html'" src="assets/logo.png" alt="nt" height="50px">
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#" id="how-to-sell">Selling</a></li>
+          <li><a href="#" id="how-to-buy">Buying</a></li>
+          <li><a href="#" id="resorts">Resorts</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+
+          
+        </ul>
+      </nav>
+      <div class="hamburger" >
+        <svg fill="#ffffff" onclick="openMenu()" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1792 1792" xml:space="preserve" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>fiction</title> <path d="M1673.9,1363.2L1673.9,1363.2c0,52.3-42.4,94.3-94.3,94.3H212.7c-52.3,0-94.3-42.4-94.3-94.3l0,0 c0-52.3,42.4-94.3,94.3-94.3h1366.8C1631.5,1268.5,1673.9,1310.9,1673.9,1363.2z"></path> <path d="M1673.9,895.6L1673.9,895.6c0,52.3-42.4,94.3-94.3,94.3H659c-52.3,0-94.3-42.4-94.3-94.3l0,0c0-52.3,42.4-94.3,94.3-94.3 h920.6C1631.5,800.8,1673.9,843.2,1673.9,895.6z"></path> <path d="M1673.9,427.9L1673.9,427.9c0,52.3-42.4,94.3-94.3,94.3H212.7c-52.3,0-94.3-42.4-94.3-94.3l0,0c0-52.3,42.4-94.3,94.3-94.3 h1366.8C1631.5,333.2,1673.9,375.6,1673.9,427.9z"></path> </g></svg>
+      </div>
+      <div class="cta">
+        <a href="sign-up.html" class="cta-btn">Add Membership to Sell</a>
+   
+      </div>
+    </div>
+    
+  </header>
+  <div class="respo-header">
+        <ul>
+        
+                <li><a href="index.html">Home</a></li>
+                <li><a href="gurantee-lowest-commission.html">Selling</a></li>
+                <li><a href="how-dvc-works.html">Buying</a></li>
+                <li><a href="resorts.html">Resorts</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+
+                <li>
+                    <a href="sign-up.html" class="cta-btn">Add Membership to Sell</a>
+                </li>
+          
+        </ul>
+    </div>
+    <div class="container mega-menu" id="sell-menu">
+        <div class="listings">
+            <div class="listings-wrapper">
+          
+              <!-- First Column -->
+              <div class="column">
+                <a href="gurantee-lowest-commission.html">Guaranteed Lowest Commission</a>
+                <a href="">Resale Value Calculator</a>
+                <a href="selling-strategy.html">Selling Strategy</a>
+                <a href="how-dvc-works.html">How DVC Works</a>
+                <a href="how-long-to-sell-dvc.html">How Long to Sell</a>
+              </div>
+          
+              <!-- Second Column -->
+              <div class="column">
+                <a href="compare-dvc-brokers.html">Compare DVC Brokers</a>
+                <a href="cost-to-sell-dvc.html">DVC Resale Costs to Sell</a>
+                <a href="dvc-firpta-tax.html">Understanding FIRPTA</a>
+                <a href="harpta.html">Understanding HARPTA</a>
+                <!-- If you have more links, you can add them here -->
+              </div>
+          
+          
+              
+            </div>
+            
+        </div>
+        <div class="image-card">
+            <img src="assets/selling.jpeg" style="height: 100%;object-fit: cover;" alt="Listings Image">
+           
+        </div>
+    </div>
+    
+      
+      <div class="container mega-menu" id="buy-menu">
+        <div class="listings">
+            <div class="listings-wrapper">
+              
+              <!-- First Column -->
+              <div class="column">
+             
+                <a href="why-dvc.html">Why Use the DVC Market</a>
+                <a href="resale-restrictions.html">DVC Resale Restrictions</a>
+                <a href="dvc-special-request.html">Custom Request</a>
+                <a href="dvc-compare-prices.html">Purchasing DVC Direct vs. DVC Resale</a>
+                <a href="disney-vacation-club-point-calculator.html">DVC Point Calculator</a>
+              </div>
+              
+              <!-- Second Column -->
+              <div class="column">
+              
+                <a href="dvc-financing.html">DVC Market Financing</a>
+                <a href="disney-vacation-club-checklist.html">Product Understanding Checklist</a>
+                <a href="https://dvcsales.com/dvc-annual-dues">Annual Dues</a>
+                <a href="#">Disney Retail Prices</a>
+             
+              </div>
+              
+              <!-- Third Column -->
+              
+          
+            </div>
+          </div>
+          <div class="image-card">
+            <img src="assets/buying.jpeg" style="height: 100%;object-fit: cover;" alt="Listings Image">
+           
+        </div>
+    </div>
+    
+      
+     <div class="container mega-menu" id="resorts-menu">
+<div class="listings">
+
+    <div class="listings-wrapper">
+        <div class="column">
+            <p class="title" onclick="window.location='resorts.html'">View All Listings</p>
+            <a href="resort_animal-kingdom.html">Disney’s Animal Kingdom Lodge</a>
+            <a href="resort_aulani.html">Aulani, A Disney Resort & Spa</a>
+            <a href="resort_baylake-tower.html">Disney's Bay Lake Tower at the Contemporary</a>
+            <a href="resort_beach-club-villas.html">Disney's Beach Club Villas</a>
+            <a href="resort_boardwalk-villas.html">Disney's BoardWalk Villas</a>
+            <a href="resort_boulder-ridge.html">Disney's Boulder Ridge</a>
+        </div>
+        <div class="column">
+            <a href="resorts_copper-creek.html">Copper Creek Villas & Cabins at Disney's Wilderness Lodge</a>
+            <a href="resort_grand-california.html">Disney's Villas at the Grand Californian</a>
+            <a href="resort_grand-floradion.html">Disney's Grand Floridian Resort & Spa</a>
+            <a href="resort_hilton-head.html">Disney's Hilton Head Island Resort</a>
+            <a href="resort_old-key-west.html">Disney's Old Key West</a>
+            <a href="resort_polynesian.html">Polynesian Villas & Bungalows</a>
+        </div>
+        <div class="column">
+            <a href="resort_riviera.html">Disney's Riviera Resort</a>
+            <a href="resort_saratoga-springs.html">Disney's Saratoga Springs Resort</a>
+            <a href="resort_vero-beach.html">Disney's Vero Beach Resort</a>
+            <!-- Assuming the "Cabins at Disney's Fort Wilderness Lodge" and "Villas at Disneyland Hotel" were not provided in the word file. 
+            If you have URLs for those, you can add them here -->
+        </div>
+    </div>
+</div>
+<div class="image-card">
+    <img src="https://thumbs.dreamstime.com/b/mother-child-colorful-balloons-summer-holidays-celebration-family-children-people-concept-34602163.jpg" alt="Listings Image">
+    <a href="resorts.html">View All Available<br> Listings →</a>
+</div>
+</div>
+<section class="resale-restrictions container">
+    <h2 class="main-title">DVC RESALE RISTRICTIONS</h2>
+    <div class="restriction-container">
+
+      <div class="part-1">
+<h4>What are the DVC Resale Restrictions?</h4>
+<p><strong>1. DVC resale contracts</strong> purchased at the original 14 resorts may use their membership at any of the original 14 resorts.</p>
+<p><strong>2. DVC resale contracts</strong> purchased at Disney's Riviera resort, Disney Campground or the Disneyland Hotel, will be limited to use only their deeded  resort. All members will have access to interval international. </p>
+      </div>
+      <div class="part-2">
+        <div class="container table-container">
+
+          <!-- Table -->
+          <div class="table-responsive">
+              <table class="table table-bordered text-center mb-0">
+                  <thead>
+                      <tr>
+                          <th>Options</th>
+                          <th>Direct from DVC</th>
+                          <th>Resale Market</th>
+                          <th>Value Loss</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>
+                              14 Original DVC Resorts
+                            
+                          </td>
+                          <td class="text-center">
+                              <svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">
+                              <svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/>
+                              </svg>
+                          </td >
+                          <td class="text-center">No</td>
+                      </tr>
+      
+                      <tr>
+                          <td>
+                              15 Riviera Resorts (2019)<br>
+                              16 Disneyland Hotel (2023)<br>
+                              17 Disney Campground (2024)
+                          </td>
+                          <td class="text-center">
+                              <svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">
+                              <svg class="icon icon-alert" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">Yes</td>
+                      </tr>
+      
+                      <tr>
+                          <td>Member Events</td>
+                          <td class="text-center">
+                              <svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">
+                              <svg class="icon icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636A1 1 0 0 0 5.636 7.05L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">Yes</td>
+                      </tr>
+      
+                      <tr>
+                          <td>Food & Merchandise Discounts</td>
+                          <td class="text-center">
+                              <svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">
+                              <svg class="icon icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636A1 1 0 0 0 5.636 7.05L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">Yes</td>
+                      </tr>
+      
+                     
+      
+                      <tr>
+                          <td>Member Lounges</td>
+                          <td class="text-center">
+                              <svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">
+                              <svg class="icon icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636A1 1 0 0 0 5.636 7.05L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/>
+                              </svg>
+                          </td>
+                          <td class="text-center">Yes</td>
+                      </tr>
+      
+                      <!-- Divider Row -->
+                      <tr class="divider-row">
+                          <td colspan="4"></td>
+                      </tr>
+      
+                      <tr>
+                          <td>＊ World Collection (Interval International)</td>
+                          <td class="text-center"><svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/></svg></td>
+                          <td class="text-center"><svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/></svg></td>
+                          <td class="text-center">No</td>
+                      </tr>
+                      <tr>
+                        <td>＊ Disney Hotels</td>
+                        <td class="text-center"><svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/></svg></td>
+                        <td class="text-center"><svg class="icon icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636A1 1 0 0 0 5.636 7.05L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/></svg></td>
+                        <td class="text-center">No</td>
+                    </tr>
+                    <tr>
+                      <td>＊ Disney Cruise</td>
+                      <td class="text-center"><svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/></svg></td>
+                      <td class="text-center"><svg class="icon icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636A1 1 0 0 0 5.636 7.05L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/></svg></td>
+                      <td class="text-center">No</td>
+                  </tr>
+                  <tr>
+                    <td>＊ Adventures By Disney</td>
+                    <td class="text-center"><svg class="icon icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.285 6.709a1 1 0 0 0-1.414-1.418L9 15.172l-3.871-3.87a1 1 0 0 0-1.415 1.414l4.578 4.577a1 1 0 0 0 1.414 0L20.285 6.71z"/></svg></td>
+                    <td class="text-center"><svg class="icon icon-cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.364 5.636a1 1 0 0 0-1.414 0L12 10.586 7.05 5.636A1 1 0 0 0 5.636 7.05L10.586 12l-4.95 4.95a1 1 0 1 0 1.414 1.414L12 13.414l4.95 4.95a1 1 0 0 0 1.414-1.414L13.414 12l4.95-4.95a1 1 0 0 0 0-1.414z"/></svg></td>
+                    <td class="text-center">No</td>
+                </tr>
+                      <!-- Add more rows if needed -->
+      
+                  </tbody>
+              </table>
+          </div>
+      
+          <!-- Info Section -->
+          <div class="info-section text-white">
+              ＊ Of note, it’s important to highlight that the dollars spent on annual dues for the points required for these experiences is typically similar to or greater than what a cash customer would pay. Most members would not consider this option to be an efficient use of points.
+             
+          </div>
+      
+      </div>
+      </div>
+    </div>
+    <div class="video-container-two">
+        <a href="selling-strategy.html">
+            <video
+                class="video-player"
+                src="https://dvcmarket.com/custom-assets/images/pages/resale-restriction/anime.webm"
+                
+                autoplay
+                muted
+                playsinline
+                loop
+                preload="metadata"
+                poster="https://dvcmarket.com/custom-assets/images/pages/resale-restriction/mobileVersion.jpeg">
+                Your browser does not support the video tag.
+            </video>
+        </a>
+    </div>
+    <div >
+        <h4>THE TRUTH ABOUT DVC RESALE RESTRICTIONS</h4>
+        <p>The Concierge Collection refers to a group of resorts (currently 16) located throughout the country (and one beyond). While this sounds tempting, there are a few things to consider that your guide may not share. First and foremost, reservations are subject to availability and black-out dates may apply when using your points. Some hotels carry their own restrictions and require a 7-day stay. Each reservation made with points requires a non-refundable $95 transaction fee. To top it all off, there’s this little rule on the DVC member website: “You cannot book and travel on Concierge Collection reservations within the last 4 months of your use year.” In other words, actually using your points on the Concierge Collection is considerably more difficult than using them at the World.</p>
+        <p>Looking at The Disney Collection, The Disney Collection includes cabins on Disney Cruises and standard hotel rooms (in other words- not DVC villas) throughout the Disney properties, including Tokyo Disney Resort, Disneyland Paris, Walt Disney World Resort in Florida and more. The Adventurer’s Collection. $95 transaction fee and restrictions around the last four months of your use year. Whether you book these trips by cash or points, they don’t come cheap. Many (including myself) may argue that you’d be better off arranging your international travel outside of Disney, period For those unfamiliar with DVC resale Restrictions, here is a general overview: Resale owners who purchase a contract at one of the original 14 Disney Vacation Club properties can only use and exchange their points at these 14 resorts. This excludes Riviera and Disneyland Hotel.</p>
+        <p>Additionally, resale buyers are not eligible for some of the benefits that Disney has deemed “Membership Extras.” These incidental benefits are subject to change at any time and are exclusive to owners who have opted to purchase at least 150 points at full price directly from Disney (as of June 2021).</p>
+        <p>-Dining discounts (from 10-20% off)</p>
+
+            <p>-Participation in some Member Exclusive Events</p>
+    </div>
+</section>
+<footer class="app-footer">
+
+  
+      
+  <!-- Links Section -->
+  <div class="footer-links">
+      <div class="links-section">
+        <h4>BUYING</h4>
+        <ul>
+          <li onclick="window.location='why-dvc.html'">Why Use the DVC Market</li>
+          <li onclick="window.location='resale-restrictions.html'">DVC Resale Restrictions</li>
+          <li onclick="window.location='dvc-special-request.html'">Custom Request</li>
+          <li onclick="window.location='dvc-compare-prices.html'">Purchasing DVC Direct vs. DVC Resale</li>
+          <li onclick="window.location='disney-vacation-club-point-calculator.html'">DVC Point Calculator</li>
+          <li onclick="window.location='dvc-financing.html'">DVC Market Financing</li>
+          <li onclick="window.location='disney-vacation-club-checklist.html'">Product Understanding Checklist</li>
+          <li onclick="window.location='https://dvcsales.com/dvc-annual-dues'">Annual Dues</li>
+          <li onclick="window.location='dvc-retail-prices.html'">Disney Retail Prices</li>
+        </ul>
+      </div>
+    
+      <div class="links-section">
+        <h4>SELLING</h4>
+        <ul>
+          <li onclick="window.location='gurantee-lowest-commission.html'">Guaranteed Lowest Commission</li>
+          <li onclick="window.location='dvc-resale-value-calculator.html'">Resale Value Calculator</li>
+          <li onclick="window.location='selling-strategy.html'">Selling Strategy</li>
+          <li onclick="window.location='how-dvc-works.html'">How DVC Works</li>
+          <li onclick="window.location='how-long-to-sell-dvc.html'">How Long to Sell</li>
+          <li onclick="window.location='compare-dvc-brokers.html'">Compare DVC Brokers</li>
+          <li onclick="window.location='cost-to-sell-dvc.html'">DVC Resale Costs to Sell</li>
+          <li onclick="window.location='dvc-firpta-tax.html'">Understanding FIRPTA</li>
+          <li onclick="window.location='harpta.html'">Understanding HARPTA</li>
+        </ul>
+      </div>
+    
+      <div class="links-section">
+        <h4>RESORTS</h4>
+        <ul>
+          <li onclick="window.location='resorts.html'">Disney Resorts</li>
+          <li onclick="window.location='resort_animal-kingdom.html'">Disney’s Animal Kingdom Lodge</li>
+          <li onclick="window.location='resort_aulani.html'">Aulani, A Disney Resort & Spa</li>
+          <li onclick="window.location='resort_baylake-tower.html'">Disney's Bay Lake Tower at the Contemporary</li>
+          <li onclick="window.location='resort_beach-club-villas.html'">Disney's Beach Club Villas</li>
+          <li onclick="window.location='resort_boardwalk-villas.html'">Disney's BoardWalk Villas</li>
+          <li onclick="window.location='resort_boulder-ridge.html'">Disney's Boulder Ridge</li>
+          <li onclick="window.location='resorts_copper-creek.html'">Copper Creek Villas & Cabins at Disney's Wilderness Lodge</li>
+          <li onclick="window.location='resort_grand-california.html'">Disney's Villas at the Grand Californian</li>
+          <li onclick="window.location='resort_grand-floradion.html'">Disney's Grand Floridian Resort & Spa</li>
+          <li onclick="window.location='resort_hilton-head.html'">Disney's Hilton Head Island Resort</li>
+          <li onclick="window.location='resort_old-key-west.html'">Disney's Old Key West</li>
+          <li onclick="window.location='resort_polynesian.html'">Polynesian Villas & Bungalows</li>
+          <li onclick="window.location='resort_riviera.html'">Disney's Riviera Resort</li>
+          <li onclick="window.location='resort_saratoga-springs.html'">Disney's Saratoga Springs Resort</li>
+          <li onclick="window.location='resort_vero-beach.html'">Disney's Vero Beach Resort</li>
+        </ul>
+      </div>
+    
+    
+    
+      <div class="links-section">
+        <h4>ACCREDITATIONS</h4>
+        <div class="ACCREDITATIONS">
+          <img onclick="window.location='https://dvcsales.com/'" width="62px" height="62px" src="https://dvcsales.com/custom-assets/images/arda_08Awards_logo_3d-rgb.jpg" alt="Accreditation 1">
+          <img onclick="window.location='https://www.bbb.org/us/fl/winter-garden/profile/timeshare-resale-and-rental-marketing/dvc-sales-0733-90326120/more-info#alert-0_65'" width="62px" height="62px" src="https://dvcsales.com/custom-assets/images/BBB-Tall-12-13.jpg" alt="Accreditation 2">
+        </div>  
+      </div>
+    
+      <div class="links-section">
+        <h4>CALL TO SCHEDULE AN APPOINTMENT</h4>
+        <img src="https://dvcsales.com/custom-assets/images/USMap7-e1573978922877.png" alt="Map Icon">
+      </div>
+    </div>
+    
+
+  <!-- Bottom Section -->
+  <div class="footer-bottom">
+    <p>&copy; 2016-2025 DVC Sales, LLC All Rights Reserved</p>
+    <p>DVC Sales, LLC is not affiliated with the Walt Disney Company or any of its subsidiaries</p>
+  </div>
+
+</footer>
+      
+<script>
+ const boxes = document.querySelectorAll('.resort-box');
+
+boxes.forEach(box => {
+  box.addEventListener('mouseenter', () => {
+    box.classList.add('active');
+    box.style.zIndex = 10; 
+  });
+
+  box.addEventListener('mouseleave', () => {
+    box.classList.remove('active');
+
+
+    setTimeout(() => {
+      box.style.zIndex = 1;
+    }, 800); 
+  });
+});
+// window.addEventListener("scroll", function () {
+//     const header = document.querySelector(".header");
+//     if (window.scrollY > 0) {
+//         header.classList.add("scrolled");
+//     } else {
+//         header.classList.remove("scrolled");
+//     }
+// });
+
+function openMenu(){
+    document.querySelector('.respo-header').classList.toggle('active');
+}
+;
+const sellMenuBtn = document.getElementById('how-to-sell');
+const buyMenuBtn = document.getElementById('how-to-buy');
+const resortsMenuBtn = document.getElementById('resorts');
+
+const sellMenu = document.getElementById('sell-menu');
+const buyMenu = document.getElementById('buy-menu');
+const resortsMenu = document.getElementById('resorts-menu');
+
+function hideAllMenus() {
+  sellMenu.classList.remove('active');
+  buyMenu.classList.remove('active');
+  resortsMenu.classList.remove('active');
+}
+
+
+sellMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  sellMenu.classList.add('active');
+});
+
+buyMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  buyMenu.classList.add('active');
+});
+
+resortsMenuBtn.addEventListener("mouseenter", function () {
+  hideAllMenus();
+  resortsMenu.classList.add('active');
+});
+
+
+[sellMenu, buyMenu, resortsMenu].forEach(menu => {
+  menu.addEventListener("mouseenter", () => menu.classList.add('active'));
+  menu.addEventListener("mouseleave", () => menu.classList.remove('active'));
+});
+
+
+document.body.addEventListener("mousemove", function (event) {
+  const header = document.querySelector('header');
+  if (!header.contains(event.target) &&
+      !sellMenu.contains(event.target) &&
+      !buyMenu.contains(event.target) &&
+      !resortsMenu.contains(event.target)) {
+    hideAllMenus();
+  }
+});
+
+
+</script>
+
+
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+<script>
+  const buttons = document.querySelectorAll('.menus button');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+   
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      button.classList.add('active');
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
