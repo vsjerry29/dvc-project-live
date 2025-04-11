@@ -74,7 +74,6 @@
       justify-content: center;
       margin: 50px auto;
       gap: 10px;
-      flex-direction: column;
       background: #e8f3f8;
    
       padding-right: 15px;
@@ -96,6 +95,8 @@
       width: 100%;
       height: 40px;
       max-width: 100% !important;
+      margin-top: 180px;
+      transform: rotate(-90deg);
     }
 
     .slider-track {
@@ -125,6 +126,7 @@
       height: 0;
       width: 100%;
       outline: none;
+      margin-top: 3px;
     }
 
     .thumb::-webkit-slider-thumb {
@@ -257,6 +259,17 @@
     section{
         padding-top: 40px;
         padding-bottom: 60px;
+    }
+    @media screen and (max-width: 768px) {
+      
+    .slider-wrapper {
+    width: 160px;
+    height: 40px;
+    max-width: 100% !important;
+    margin-top: 100px;
+    transform: rotate(-90deg);
+    margin-bottom: 30px;
+}
     }
 </style>
 
@@ -461,16 +474,15 @@
           
             <div class="range-container">
               <input type="number" id="pointMinInput" value="25" min="0" max="150">
-              <div class="divider"></div>
-              <div class="slider-wrapper">
-                <div class="slider-track"></div>
-                <div class="slider-range" id="pointSliderRange"></div>
-          
-                <input type="range" min="25" max="150" value="25" id="pointRangeMin" class="thumb">
-                <input type="range" min="25" max="150" value="150" id="pointRangeMax" class="thumb">
-              </div>
-              <div class="divider"></div>
+              <span>to</span>
               <input type="number" id="pointMaxInput" value="150" min="0" max="150">
+            </div>
+            <div class="slider-wrapper">
+              <div class="slider-track"></div>
+              <div class="slider-range" id="pointSliderRange"></div>
+        
+              <input type="range" min="25" max="150" value="25" id="pointRangeMin" class="thumb">
+              <input type="range" min="25" max="150" value="150" id="pointRangeMax" class="thumb">
             </div>
           </div>
           
@@ -503,16 +515,15 @@
   
     <div class="range-container">
       <input type="number" id="priceMinInput" value="25" min="0" max="150">
-      <div class="divider"></div>
-      <div class="slider-wrapper">
-        <div class="slider-track"></div>
-        <div class="slider-range" id="priceSliderRange"></div>
-  
-        <input type="range" min="25" max="150" value="25" id="priceRangeMin" class="thumb">
-        <input type="range" min="25" max="150" value="150" id="priceRangeMax" class="thumb">
-      </div>
-      <div class="divider"></div>
+      <span>to</span>
       <input type="number" id="priceMaxInput" value="150" min="0" max="150">
+    </div>
+    <div class="slider-wrapper">
+      <div class="slider-track"></div>
+      <div class="slider-range" id="priceSliderRange"></div>
+
+      <input type="range" min="25" max="150" value="25" id="priceRangeMin" class="thumb">
+      <input type="range" min="25" max="150" value="150" id="priceRangeMax" class="thumb">
     </div>
   </div>
       </div>
