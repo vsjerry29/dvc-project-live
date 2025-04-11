@@ -51,9 +51,10 @@
     }
 
     .btn-option {
-      margin: 5px;
+      margin: 2px;
       border: 1px solid #0a375c;
       color: #0a375c;
+      padding: 5px;
     }
 
     .btn-option.active {
@@ -260,6 +261,11 @@
         padding-top: 40px;
         padding-bottom: 60px;
     }
+    #resortOptions , #monthOptions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     @media screen and (max-width: 768px) {
       
     .slider-wrapper {
@@ -446,7 +452,7 @@
             <span id="selectAllResorts">Select All</span> | <span id="clearAllResorts">Clear All</span>
           </div>
     
-          <div id="resortOptions" class="d-flex flex-wrap justify-content-center">
+          <div id="resortOptions" class="justify-content-center">
             <!-- Resort Buttons -->
             <button type="button" class="btn btn-option">Animal Kingdom</button>
             <button type="button" class="btn btn-option">Aulani</button>
@@ -496,7 +502,7 @@
             <span id="selectAllMonths">Select All</span> | <span id="clearAllMonths">Clear All</span>
           </div>
     
-          <div id="monthOptions" class="d-flex flex-wrap justify-content-center">
+          <div id="monthOptions" class="justify-content-center">
             <button type="button" class="btn btn-option">February</button>
             <button type="button" class="btn btn-option">March</button>
             <button type="button" class="btn btn-option">April</button>
