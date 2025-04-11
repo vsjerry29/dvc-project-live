@@ -181,6 +181,17 @@
   .second-table td {
     padding: 8px 0;
   }
+
+  .second-table {
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+  }
+  
+  .second-table th {
+    min-width: 80px;
+    white-space: nowrap;
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -196,7 +207,6 @@
     border: none;
     border-bottom: 1px solid #eee;
     position: relative;
-    padding-left: 50%;
   }
   
 }
@@ -387,7 +397,7 @@ const picker = new Litepicker({
 </section>
 <section class="main-table container">
     <div class="custom-scrollbar">
-        <div>
+        <div style="width: fit-content;">
             <!-- Animal Kingdom -->
             <div>
               <table>
