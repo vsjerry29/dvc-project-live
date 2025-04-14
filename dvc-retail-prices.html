@@ -109,10 +109,9 @@
     }
     .table-container {
             min-height: 500px;
-            width: 700px;
+            width: 715px;
             margin: 20px auto;
             border: 1px solid #2b6cb0;
-            overflow-x: auto;
         }
         table {
             width: 100%;
@@ -133,8 +132,12 @@
         th.text-center {
             text-align: center;
         }
+        th,td{
+          width: fit-content;
+          white-space: nowrap;
+        }
         td {
-            padding: 8px;
+            padding: 3px;
             border-bottom: 1px solid #e2e8f0;
         }
         tbody tr:nth-child(even) {
@@ -192,12 +195,16 @@
         margin-bottom: 15px;
         border: 1px solid #ccc;
     }
+    td, th{
+      font-size: 12px;
+      width: 100%;
+      white-space: wrap;
+    }
     
     td {
         border: none;
         border-bottom: 1px solid #eee;
         position: relative;
-        padding-left: 50%;
     }
     .controls {
             font-size: 14px;
