@@ -173,27 +173,35 @@
 
   th, td {
     padding: 5px;
-    border: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     text-align: left;
     font-size: 16px;
     font-weight: 600;
     text-align: start!important;
+    width: 18%;
   }
-  .second-table   th, td {
-    padding: 5px 0px;
-    border: 1px solid #ccc;
-    text-align: center;
-    font-size: 16px;
-    font-weight: 600;
-}
+  .border-c{
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    border-width: .5;
+    border-style: solid;
+    border-color: #e5e7eb;
+  }
 
+  .compare-dvc-broker{
+    width: 67%;
+    margin: auto;
+  }
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   th, td {
-    padding: 8px 4px; /* Even smaller padding for mobile */
-    font-size: 12px; /* Smaller font for mobile */
+    padding: 8px 4px;
+    font-size: 12px;
   }
-  
+  .compare-dvc-broker{
+    width: 100%;
+  }
   .second-table th,
   .second-table td {
     padding: 5px 0;
@@ -395,17 +403,21 @@
   <h2 class="main-title">DVC POINT CALCULATOR</h2>
 
 <div class="pb-3 input-wrapper">  
-  <span class="input-icon">
-    <!-- Calendar SVG -->
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
-      <path d="M29.333 8c0-2.208-1.792-4-4-4h-18.667c-2.208 0-4 1.792-4 4v18.667c0 2.208 1.792 4 4 4h18.667c2.208 0 4-1.792 4-4v-18.667zM26.667 8v18.667c0 0.736-0.597 1.333-1.333 1.333 0 0-18.667 0-18.667 0-0.736 0-1.333-0.597-1.333-1.333 0 0 0-18.667 0-18.667 0-0.736 0.597-1.333 1.333-1.333 0 0 18.667 0 18.667 0 0.736 0 1.333 0.597 1.333 1.333z"></path>
-      <path d="M20 2.667v5.333c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v-5.333c0-0.736-0.597-1.333-1.333-1.333s-1.333 0.597-1.333 1.333z"></path>
-      <path d="M9.333 2.667v5.333c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v-5.333c0-0.736-0.597-1.333-1.333-1.333s-1.333 0.597-1.333 1.333z"></path>
-      <path d="M4 14.667h24c0.736 0 1.333-0.597 1.333-1.333s-0.597-1.333-1.333-1.333h-24c-0.736 0-1.333 0.597-1.333 1.333s0.597 1.333 1.333 1.333z"></path>
-    </svg>
-  </span>
-  <input type="text" name="datetimes" />
-  
+  <div class="border-c"> 
+    <span class="input-icon">
+      <!-- Calendar SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M29.333 8c0-2.208-1.792-4-4-4h-18.667c-2.208 0-4 1.792-4 4v18.667c0 2.208 1.792 4 4 4h18.667c2.208 0 4-1.792 4-4v-18.667zM26.667 8v18.667c0 0.736-0.597 1.333-1.333 1.333 0 0-18.667 0-18.667 0-0.736 0-1.333-0.597-1.333-1.333 0 0 0-18.667 0-18.667 0-0.736 0.597-1.333 1.333-1.333 0 0 18.667 0 18.667 0 0.736 0 1.333 0.597 1.333 1.333z"></path>
+        <path d="M20 2.667v5.333c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v-5.333c0-0.736-0.597-1.333-1.333-1.333s-1.333 0.597-1.333 1.333z"></path>
+        <path d="M9.333 2.667v5.333c0 0.736 0.597 1.333 1.333 1.333s1.333-0.597 1.333-1.333v-5.333c0-0.736-0.597-1.333-1.333-1.333s-1.333 0.597-1.333 1.333z"></path>
+        <path d="M4 14.667h24c0.736 0 1.333-0.597 1.333-1.333s-0.597-1.333-1.333-1.333h-24c-0.736 0-1.333 0.597-1.333 1.333s0.597 1.333 1.333 1.333z"></path>
+      </svg>
+    </span>
+    <input style="border: none;" type="text" name="datetimes" />
+ 
+  </div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" class="dp__icon dp__clear_icon x-icon dp__input_icons"><path d="M23.057 7.057l-16 16c-0.52 0.52-0.52 1.365 0 1.885s1.365 0.52 1.885 0l16-16c0.52-0.52 0.52-1.365 0-1.885s-1.365-0.52-1.885 0z"></path><path d="M7.057 8.943l16 16c0.52 0.52 1.365 0.52 1.885 0s0.52-1.365 0-1.885l-16-16c-0.52-0.52-1.365-0.52-1.885 0s-0.52 1.365 0 1.885z"></path></svg>
+   
 </div>
   
   
@@ -1011,7 +1023,7 @@
       </div>
   </section>
   
-  <section class="container pt-5">
+  <!-- <section class="container pt-5">
     <h3 class="title text-center">Aulani - 2025</h3>
     <div class="second-table">
         <table border="1" cellspacing="0" cellpadding="5">
@@ -1223,11 +1235,11 @@
           </div>
           
     </div>
-  </section>
+  </section> -->
 
 <section class="compare-dvc-broker container pb-5">
   <div class="description mt-5">
-    <h3 style="color: #f58220; font-weight: bold;">HOW TO USE THE VACATION POINT CALCULATOR</h3>
+    <h3 style="color: #f58220; font-weight: bold; text-align: center;">HOW TO USE THE VACATION POINT CALCULATOR</h3>
 
     <p>This is our Vacation Point Calculator. The purpose of this tool is to assist buyers as they determine the right size membership for their family.</p>
     <p>There are Point Charts for each of the 15 Resorts, and the points per night will vary, depending on several factors. A two bedroom villa will naturally require more points per night than a deluxe studio. Do you typically travel during peak or off season? The number of points for each of the Disney Vacation Club Resorts will appear as you input the different dates and room sizes.</p>
