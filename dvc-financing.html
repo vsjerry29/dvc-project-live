@@ -246,18 +246,18 @@
       position: relative;
       width: 100%;
       height: 40px;
-      cursor: not-allowed;
+      /* cursor: not-allowed; */
     }
 
     .range-slider {
       position: absolute;
-      pointer-events: none;
+      /* pointer-events: none; */
       height: 40px;
       width: 100%;
     }
 
     .range-slider input[type=range] {
-      pointer-events: none;
+      /* pointer-events: none; */
       position: absolute;
       left: 0;
       top: 0;
@@ -265,7 +265,7 @@
       -webkit-appearance: none;
       background: none;
       height: 0;
-      cursor: not-allowed;
+      /* cursor: not-allowed; */
     }
 
     input[type=range]::-webkit-slider-thumb {
@@ -274,7 +274,7 @@
       width: 20px;
       border-radius: 50%;
       background: #fff;
-      cursor: not-allowed;
+      /* cursor: not-allowed; */
       border: 2px solid #ddd;
       margin-top: 40px;
       position: relative;
@@ -286,7 +286,7 @@
       width: 20px;
       border-radius: 50%;
       background: #fff;
-      cursor: not-allowed;
+      /* cursor: not-allowed; */
     
       position: relative;
       z-index: 2;
@@ -388,7 +388,7 @@
               <!-- First Column -->
               <div class="column">
                 <a href="gurantee-lowest-commission.html">Guaranteed Lowest Commission</a>
-                <a href="">Resale Value Calculator</a>
+                <a href="dvc-resale-value-calculator.html">Resale Value Calculator</a>
                 <a href="selling-strategy.html">Selling Strategy</a>
                 <a href="how-dvc-works.html">How DVC Works</a>
                 <a href="how-long-to-sell-dvc.html">How Long to Sell</a>
@@ -510,8 +510,8 @@
         <div class="slider-track"></div>
         <div class="slider-range" id="interestRange"></div>
         <div class="range-slider">
-          <input type="range" id="interestMin" min="9.9" max="14.9" step="0.1" value="11.5" disabled>
-          <input type="range" id="interestMax" min="9.9" max="14.9" step="0.1" value="13.3" disabled>
+          <input type="range" id="interestMin" min="9.9" max="14.9" step="0.1" value="11.5">
+          <input type="range" id="interestMax" min="9.9" max="14.9" step="0.1" value="13.3">
         </div>
       </div>
     </div>
@@ -534,8 +534,8 @@
         <div class="slider-track"></div>
         <div class="slider-range" id="termRange"></div>
         <div class="range-slider">
-          <input type="range" id="termMin" min="3" max="10" step="1" value="4" disabled>
-          <input type="range" id="termMax" min="3" max="10" step="1" value="8" disabled>
+          <input type="range" id="termMin" min="3" max="10" step="1" value="4">
+          <input type="range" id="termMax" min="3" max="10" step="1" value="8">
         </div>
       
       </div>
@@ -632,46 +632,62 @@
   </div>
 
 </footer>
-      <script>
-        function setupDualSlider(minInput, maxInput, minBox, maxBox, unit, rangeElement) {
-          const minVal = parseFloat(minInput.min);
-          const maxVal = parseFloat(minInput.max);
-    
-          function updateSlider() {
-            let min = parseFloat(minInput.value);
-            let max = parseFloat(maxInput.value);
-    
-            const minPercent = ((min - minVal) / (maxVal - minVal)) * 100;
-            const maxPercent = ((max - minVal) / (maxVal - minVal)) * 100;
-    
-            rangeElement.style.left = minPercent + "%";
-            rangeElement.style.width = (maxPercent - minPercent) + "%";
-    
-            minBox.textContent = unit === '%' ? min.toFixed(1) + unit : Math.floor(min) + unit;
-            maxBox.textContent = unit === '%' ? max.toFixed(1) + unit : Math.floor(max) + unit;
-          }
-    
-          updateSlider();
+<script>
+  function setupDualSlider(minInput, maxInput, minBox, maxBox, unit, rangeElement) {
+    const minVal = parseFloat(minInput.min);
+    const maxVal = parseFloat(minInput.max);
+
+    function updateSlider() {
+      let min = parseFloat(minInput.value);
+      let max = parseFloat(maxInput.value);
+
+      // 🔒 Prevent crossing
+      if (min > max) {
+        if (event.target === minInput) {
+          maxInput.value = min;
+          max = min;
+        } else {
+          minInput.value = max;
+          min = max;
         }
-    
-        setupDualSlider(
-          document.getElementById("interestMin"),
-          document.getElementById("interestMax"),
-          document.getElementById("interestMinBox"),
-          document.getElementById("interestMaxBox"),
-          "%",
-          document.getElementById("interestRange")
-        );
-    
-        setupDualSlider(
-          document.getElementById("termMin"),
-          document.getElementById("termMax"),
-          document.getElementById("termMinBox"),
-          document.getElementById("termMaxBox"),
-          " Years",
-          document.getElementById("termRange")
-        );
-      </script>
+      }
+
+      const minPercent = ((min - minVal) / (maxVal - minVal)) * 100;
+      const maxPercent = ((max - minVal) / (maxVal - minVal)) * 100;
+
+      rangeElement.style.left = minPercent + "%";
+      rangeElement.style.width = (maxPercent - minPercent) + "%";
+
+      minBox.textContent = unit === '%' ? min.toFixed(1) + unit : Math.floor(min) + unit;
+      maxBox.textContent = unit === '%' ? max.toFixed(1) + unit : Math.floor(max) + unit;
+    }
+
+    // 👂 Listen to changes
+    minInput.addEventListener("input", updateSlider);
+    maxInput.addEventListener("input", updateSlider);
+
+    updateSlider();
+  }
+
+  setupDualSlider(
+    document.getElementById("interestMin"),
+    document.getElementById("interestMax"),
+    document.getElementById("interestMinBox"),
+    document.getElementById("interestMaxBox"),
+    "%",
+    document.getElementById("interestRange")
+  );
+
+  setupDualSlider(
+    document.getElementById("termMin"),
+    document.getElementById("termMax"),
+    document.getElementById("termMinBox"),
+    document.getElementById("termMaxBox"),
+    " Years",
+    document.getElementById("termRange")
+  );
+</script>
+
    
     
 <script>

@@ -398,7 +398,7 @@
             margin-left: auto;
             color: black;
             border: solid 1px #858585;
-            margin-bottom: -20px;
+            margin-bottom: 8px;
             z-index: 18;
             position: relative;
         }
@@ -634,6 +634,12 @@
     }
 
     @media (max-width: 768px) {
+        .filter-controls {
+            margin-bottom: -10px;
+        }
+        .price-adjustment-widget {
+            margin: auto!important;
+        }
         .resale-header {
             flex-direction: column;
             gap: 15px;
@@ -654,9 +660,12 @@
         .watch-now-btn{
             margin-top: 0px;
         }
+        .point-range{
+            margin: auto!important;
+        }
     }
     select, input{
-        height:40px;
+        height:20px;
         padding: 0px!important;
     }
     .comparison-container {
@@ -825,8 +834,12 @@
             margin: 0 auto;
             position: absolute;
             margin-top: -72px;
+            width: 100%;
         }
         
+        .slider-wrapper{
+            padding: 20px 0px;
+        }
         .chart-row {
             display: flex;
             align-items: flex-end;
@@ -842,7 +855,7 @@
             border-radius: 8px 8px 0 0;
             transition: height 0.2s ease;
             margin: 0 1px;
-            min-width: 6px;
+            width: 6px;
         }
         
         .chart-cell.highlight {
@@ -911,7 +924,7 @@
               <!-- First Column -->
               <div class="column">
                 <a href="gurantee-lowest-commission.html">Guaranteed Lowest Commission</a>
-                <a href="">Resale Value Calculator</a>
+                <a href="dvc-resale-value-calculator.html">Resale Value Calculator</a>
                 <a href="selling-strategy.html">Selling Strategy</a>
                 <a href="how-dvc-works.html">How DVC Works</a>
                 <a href="how-long-to-sell-dvc.html">How Long to Sell</a>
@@ -1066,7 +1079,8 @@
             </div>
         
 
-            <div class="chart-container">
+            <div class="chart-wrapper" style="position: relative;">
+                <div class="chart-container">
                 <div class="chart-row">
                     <!-- These heights correspond to the values in your reference code -->
                     <div class="chart-cell" style="height: 0px;"></div>
@@ -1137,6 +1151,7 @@
                     <div class="chart-cell highlight-blue" style="height: 20px;"></div>
                 </div>
                 
+            </div>
             </div>
 
             <!-- Price Slider -->
